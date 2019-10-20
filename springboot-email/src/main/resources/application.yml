@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  
+
+spring:  mail:    host: smtp.qq.com  #这里使用qq  其他邮箱可百度
+    password: 密码不是登录密码，是授权的密码
+    username: 邮箱账号
+    properties:      mail:
+        smtp:
+          auth: true       #认证
+          starttls:
+            enable: true   #是否用启用加密传送的协议验证项
+            required: true #是否用启用加密传送的协议验证项
+    default-encoding: UTF-8
+      thymeleaf:    cache: false
+    mode: html
+    
+    
