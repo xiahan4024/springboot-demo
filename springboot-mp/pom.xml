@@ -47,10 +47,10 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<!-- 模版引擎 -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
-		</dependency> -->
+		</dependency>
 		 <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-engine-core</artifactId>
