@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  
+spring:  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    primekey:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.110.100:3306/multipleData3306?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
+      username: root
+      password: xiahan
+      type: com.alibaba.druid.pool.DruidDataSource
+    datasource1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.110.100:3307/multipleData3307?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
+      username: root
+      password: xiahan
+      type: com.alibaba.druid.pool.DruidDataSource
+    datasource2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.110.100:3308/multipleData3308?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
+      username: root
+      password: xiahan
+      type: com.alibaba.druid.pool.DruidDataSource
+      
+logging:  level:    com.xiahan.multiple.mapper: debug
+    
