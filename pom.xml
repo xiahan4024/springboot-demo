@@ -48,5 +48,6 @@
 		<module>springboot-email</module>
 		<module>springboot-mp</module>
 		<module>springboot-multipleDataSource</module>
+		<module>springboot-quartz</module>
 	</modules>
 </project>
