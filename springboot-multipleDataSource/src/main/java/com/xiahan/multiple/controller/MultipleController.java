@@ -21,29 +21,29 @@ public class MultipleController {
 
 	@GetMapping("/multiple/{type}")
 	public Object test(@PathVariable String type) {
-		Student Student = null;
+		Student student = null;
 		switch (type) {
 		case "no":
-			Student = multipleService.no();
+			student = multipleService.no();
 			break;
 		case "primekeyNoValue":
-			Student = multipleService.primekeyNoValue();
+			student = multipleService.primekeyNoValue();
 			break;
 		case "primekey":
-			Student = multipleService.primekey();
+			student = multipleService.primekey();
 			break;
 		case "datasource1":
-			Student = multipleService.datasource1();
+			student = multipleService.datasource1();
 			break;
 		case "datasource2":
-			Student = multipleService.datasource2();
+			student = multipleService.datasource2();
 			break;
 
 		default:
-			Student = multipleService.primekey();
+			student = multipleService.primekey();
 			break;
 		}
-		return Student;
+		return student;
 	}
 
 }

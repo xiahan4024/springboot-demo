@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class MyQuartzService {
 
-	public void TestQuartz(String name) {
+	public void testQuartz(String name) {
 		double random = Math.random();
 //		if(random > 0.5) {
 //		try {

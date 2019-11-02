@@ -43,7 +43,7 @@ public class TestQuartzController {
 	@GetMapping("/job/{jobID}/{corn}")
 	public boolean modifyJob(@PathVariable String jobID) {
 		try {
-			if(jobID.equals("one")) {
+			if("one".equals(jobID)) {
 				scheduledManagerUtil.modifyJobTime("xiahanJob", "xiahanJobGroup", "xiahanTrigger", 
 						"xiahanTriggerGroup", "/5 * * * * ?");
 			}else{

@@ -27,7 +27,7 @@ public class MyScheduledService {
 	 * @param
 	 */
 	@Scheduled(cron = "*/2 * * * * ?")
-	public void TestSpringScheduled() {
+	public void testSpringScheduled() {
 		try {
 			myScheduled.testScheduled("xiahan");
 		} catch (Exception e) {

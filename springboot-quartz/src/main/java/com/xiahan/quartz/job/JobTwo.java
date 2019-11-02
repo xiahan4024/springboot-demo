@@ -21,7 +21,7 @@ public class JobTwo extends QuartzJobBean{
 
 	@Override
 	protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-		myQuartzService.TestQuartz("qiuhan");
+		myQuartzService.testQuartz("qiuhan");
 	}
 
 }
