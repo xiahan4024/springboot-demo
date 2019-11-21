@@ -1,16 +1,19 @@
 package com.xiahan.quartz.config;
 
-import java.util.Properties;
+import javax.sql.DataSource;
 
-import org.quartz.Scheduler;
 import org.quartz.ee.servlet.QuartzInitializerListener;
 import org.quartz.spi.JobFactory;
-import org.springframework.beans.factory.config.PropertiesFactoryBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.quartz.AdaptableJobFactory;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,24 +31,30 @@ public class MyQuartzConfig {
 		return new MyJobFactory();
 	}
 	
-	@Bean
-    public Properties quartzProperties() throws Exception {
-        PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
-        propertiesFactoryBean.setLocation(new ClassPathResource("/quartz.properties"));
-        //在quartz.properties中的属性被读取并注入后再初始化对象
-        propertiesFactoryBean.afterPropertiesSet();
-        return propertiesFactoryBean.getObject();
-    }
+	@ConfigurationProperties(prefix = "spring.datasource")
+	@Bean("dataSource")
+	@Primary
+	public DataSource DruidDataSource() {
+		return DruidDataSourceBuilder.create().build();
+	}
 	
 	@Bean
-	public SchedulerFactoryBean schedulerFactory(JobFactory jobFactory) {
+	public SchedulerFactoryBean schedulerFactory(DruidDataSource dataSource,JobFactory jobFactory) {
 		SchedulerFactoryBean schedulerFactory = new SchedulerFactoryBean ();
 		try {
-			schedulerFactory.setQuartzProperties(quartzProperties());
+			//设置覆盖已存在的任务
+			schedulerFactory.setOverwriteExistingJobs(true);
+	        //项目启动完成后，等待2秒后开始执行调度器初始化
+			schedulerFactory.setStartupDelay(2);
+	        //设置调度器自动运行
+			schedulerFactory.setAutoStartup(true);
+			schedulerFactory.setDataSource(dataSource);
+			//设置配置文件位置
+			schedulerFactory.setConfigLocation(new ClassPathResource("/quartz.properties"));
+			schedulerFactory.setJobFactory(jobFactory);
 		} catch (Exception e) {
-			log.error("设置quartz.properties出错：" + e);
+			log.error("设置[SchedulerFactoryBean]出错：" + e);
 		}
-		schedulerFactory.setJobFactory(jobFactory);
 		return schedulerFactory;
 	}
 
@@ -59,15 +68,5 @@ public class MyQuartzConfig {
     public QuartzInitializerListener executorListener() {
        return new QuartzInitializerListener();
     }
-	
-//    @Bean
-//    public Scheduler scheduler(SchedulerFactoryBean schedulerFactory){
-//        return schedulerFactory.getScheduler();
-//    }
-	
-	
-	
-	
-	
 	
 }

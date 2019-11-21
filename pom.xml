@@ -49,5 +49,6 @@
 		<module>springboot-mp</module>
 		<module>springboot-multipleDataSource</module>
 		<module>springboot-quartz</module>
+		<module>java8</module>
 	</modules>
 </project>
