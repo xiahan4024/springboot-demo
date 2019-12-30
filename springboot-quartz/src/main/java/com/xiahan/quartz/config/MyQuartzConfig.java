@@ -12,7 +12,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.quartz.AdaptableJobFactory;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +38,7 @@ public class MyQuartzConfig {
 	}
 	
 	@Bean
-	public SchedulerFactoryBean schedulerFactory(DruidDataSource dataSource,JobFactory jobFactory) {
+	public SchedulerFactoryBean schedulerFactory(DataSource dataSource,JobFactory jobFactory) {
 		SchedulerFactoryBean schedulerFactory = new SchedulerFactoryBean ();
 		try {
 			//设置覆盖已存在的任务
