@@ -2,12 +2,9 @@ package MP;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -15,10 +12,8 @@ import com.baomidou.mybatisplus.generator.config.FileOutConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 /**
  * mybatis-plus 逆向工程
@@ -28,14 +23,21 @@ import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
  */
 public class VelocityGBM {
 
+    /**   */
     public static final String PROJECTPATH = "E:/JAVA/Windows/STSWorkspace/springboot-demo/springboot-mp";
+    /**   */
     public static final String OUTPUTDIR = "/src/main/java";
+    /**  父包名 */
     public static final String PACKAGEPARENT = "com.xiahan.mp";
+    /**  作者 */
     public static final String AUTHOR = "xiahan";
-    public static final String DBURL = "jdbc:mysql://192.168.110.100:3306/mp_test?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei";
+    /** jdbc 连接信息  */
+    public static final String DBURL = "jdbc:mysql://192.168.110.100:3306/mp_test?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Chongqing";
+    /**  驱动 */
     public static final String DBDRIVER = "com.mysql.cj.jdbc.Driver";
-//    public static final String DBDRIVER = "com.mysql.jdbc.Driver";
+    /** mysql 用户名  */
     public static final String DBUSER = "root";
+    /**  mysql 密码 */
     public static final String DBPASSWORD = "xiahan";
 
     public static void main(String[] args) {

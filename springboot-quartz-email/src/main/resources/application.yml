@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+#    type: com.mchange.v2.c3p0.ComboPooledDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.110.100:3306/quartz?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
+    username: root
+    password: xiahan  mail:    host: smtp.qq.com  #这里使用qq  其他邮箱可百度
+    password: tjnwxdpfwqobbgig
+    username: 402475630@qq.com
+    properties:      mail:
+        smtp:
+          auth: true       #认证
+          starttls:
+            enable: true   #是否用启用加密传送的协议验证项
+            required: true #是否用启用加密传送的协议验证项
+    default-encoding: UTF-8
+      thymeleaf:    cache: false
+    mode: html
+    
+    
