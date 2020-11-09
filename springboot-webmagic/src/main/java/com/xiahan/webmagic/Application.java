@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:36:38
+ * @Description: webmagic 应用，里面带有spring自带定时任务、动态代理、cglib代理、AOP思想、RabbitMQ使用、下载URL 图片
  */
 @EnableAsync  // 异步
 @EnableRabbit  //开启基于注解的RabbitMQ模式
