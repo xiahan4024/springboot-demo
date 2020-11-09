@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:55:53
+ * @Description: 下载 图片
  */
 @Slf4j
 @Component

@@ -26,6 +26,7 @@ import java.util.List;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:51:33
+ * @Description: Cglib 被代理对象
  */
 @Slf4j
 @Component

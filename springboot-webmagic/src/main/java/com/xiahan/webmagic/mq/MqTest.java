@@ -23,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:54:36
+ * @Description: mq 测试
  */
 @Slf4j
 @Component

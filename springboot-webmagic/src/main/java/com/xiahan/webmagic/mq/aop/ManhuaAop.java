@@ -23,6 +23,7 @@ import java.util.Enumeration;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:51:09
+ * @Description: AOP 思想
  */
 @Slf4j
 @Aspect
@@ -32,7 +33,6 @@ public class ManhuaAop {
   @Autowired
   MsgLogService msgLogService;
 
-  // com.xiahan.manhua.mq.cglib.CglibMqTestConsum
   @Pointcut("execution(public * com.xiahan.webmagic.mq.cglib.CglibMqTestConsum.*(..))")
   public void webmagicPointcut(){
   }

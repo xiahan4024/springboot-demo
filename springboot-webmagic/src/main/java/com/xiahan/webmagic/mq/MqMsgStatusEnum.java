@@ -7,6 +7,7 @@ import lombok.Getter;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:54:17
+ * @Description: mq 消息状态
  */
 @Getter
 @AllArgsConstructor

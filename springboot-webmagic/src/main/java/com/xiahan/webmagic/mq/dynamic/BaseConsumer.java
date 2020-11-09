@@ -10,6 +10,7 @@ import com.rabbitmq.client.Channel;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:52:12
+ * @Description: 动态代理接口
  */
 @Deprecated
 public interface BaseConsumer {

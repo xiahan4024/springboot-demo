@@ -10,6 +10,7 @@ import us.codecraft.webmagic.model.annotation.TargetUrl;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:48:40
+ * @Description: www.tianxiabachang.cn 注解版解析
  */
 @Data
 @AllArgsConstructor

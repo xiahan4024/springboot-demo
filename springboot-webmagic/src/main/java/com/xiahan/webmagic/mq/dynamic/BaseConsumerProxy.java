@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:52:25
+ * @Description: 动态代理（JDK 代理）代理: 必须要有接口。有多个就需要多个实现类。缺点：维护麻烦
  */
 @Slf4j
 @Deprecated

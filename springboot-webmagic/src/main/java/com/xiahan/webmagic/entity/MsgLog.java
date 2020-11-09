@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:49:15
+ * @Description: mq 落库
  */
 @Data
 @AllArgsConstructor

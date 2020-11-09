@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:53:14
+ * @Description: 动态代理实现
  */
 @Slf4j
 @Component

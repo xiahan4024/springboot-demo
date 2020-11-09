@@ -18,6 +18,7 @@ import java.util.List;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:55:36
+ * @Description: 定时任务重新投递发送失败的消息
  */
 @Slf4j
 @Component

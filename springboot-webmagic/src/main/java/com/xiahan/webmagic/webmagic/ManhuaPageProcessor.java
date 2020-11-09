@@ -23,6 +23,7 @@ import us.codecraft.webmagic.selector.Html;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:56:15
+ * @Description: 非注解解析
  */
 @Slf4j
 public class ManhuaPageProcessor implements PageProcessor {

@@ -16,6 +16,7 @@ import us.codecraft.webmagic.scheduler.component.DuplicateRemover;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:56:35
+ * @Description: 自定义redis 去重。（官方提供的貌似有点点问题，不知为何，并没有完全去重）
  */
 public class MyRedisScheduler extends DuplicateRemovedScheduler implements MonitorableScheduler, DuplicateRemover {
 

@@ -21,6 +21,7 @@ import us.codecraft.webmagic.scheduler.RedisScheduler;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:57:27
+ * @Description: 使用动态代理后，基本废弃
  */
 @Component
 @Deprecated

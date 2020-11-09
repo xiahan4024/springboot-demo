@@ -13,6 +13,7 @@ import com.xiahan.webmagic.entity.ManhuaImg;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:49:33
+ * @Description: img 操作，方便记录哪些已经下载。支持断点下载这类
  */
 @Mapper
 public interface ManhuaMapper {

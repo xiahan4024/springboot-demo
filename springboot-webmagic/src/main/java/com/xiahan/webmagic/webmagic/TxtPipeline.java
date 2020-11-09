@@ -15,6 +15,7 @@ import us.codecraft.webmagic.pipeline.PageModelPipeline;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:57:07
+ * @Description: 小说解析并保存到本地
  */
 @Slf4j
 public class TxtPipeline implements PageModelPipeline<ChapterWithAnnotation> {

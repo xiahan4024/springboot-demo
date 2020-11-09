@@ -17,6 +17,7 @@ import us.codecraft.webmagic.scheduler.RedisScheduler;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:52:56
+ * @Description: 动态代理实现
  */
 //@Slf4j
 @Component

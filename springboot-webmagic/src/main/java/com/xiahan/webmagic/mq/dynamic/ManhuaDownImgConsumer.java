@@ -18,6 +18,7 @@ import com.xiahan.webmagic.util.DownImg;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:52:40
+ * @Description: 动态代理实现
  */
 @Component
 @Deprecated

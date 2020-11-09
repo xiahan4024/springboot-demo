@@ -14,6 +14,7 @@ import com.xiahan.webmagic.entity.MsgLog;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:49:45
+ * @Description: mq落库
  */
 @Mapper
 public interface MsgLogMaper {

@@ -7,6 +7,7 @@ import lombok.Getter;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:54:04
+ * @Description: 枚举 mq exchange、queues、banding
  */
 @Getter
 @AllArgsConstructor

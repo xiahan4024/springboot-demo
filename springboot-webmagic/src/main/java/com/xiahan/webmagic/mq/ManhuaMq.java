@@ -26,6 +26,10 @@ import java.util.Objects;
  * 
  * @author xiahan
  * @dateTime 2020年11月9日 下午8:53:46
+ * @Description: manhua mq处理
+ * 解析网页、下载图片
+ *        @RabbitListener 注解，处理mq 信息。但是有许多重复的东西，比如检查重复消费， 处理过程失败，发送ack、以及不发送ack等一模一样的代码
+ *        只是核心处理不同，可以使用代理模式，将其相同的部分抽取出来即可。
  */
 @Slf4j
 @Component
