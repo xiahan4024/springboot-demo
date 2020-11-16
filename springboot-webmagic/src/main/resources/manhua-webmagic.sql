@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50728
  Source Host           : 192.168.110.100:3306
- Source Schema         : webmagic
+ Source Schema         : manhua-webmagic
 
  Target Server Type    : MySQL
  Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 09/11/2020 20:39:29
+ Date: 16/11/2020 21:36:31
 */
 
 SET NAMES utf8mb4;

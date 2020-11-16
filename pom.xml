@@ -19,10 +19,11 @@
 		<java.version>1.8</java.version>
 
 		<mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
-		<pagehelper.version>1.2.12</pagehelper.version>
+		<pagehelper.version>1.2.10</pagehelper.version>
 		<druid.version>1.1.10</druid.version>
 		<mybatis-plus.version>3.1.2</mybatis-plus.version>
 		<webmagic.version>0.7.3</webmagic.version>
+		<fastjson.version>1.2.62</fastjson.version>
 	</properties>
 
 	<dependencyManagement>
@@ -52,6 +53,11 @@
 				<artifactId>webmagic-extension</artifactId>
 				<version>${webmagic.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -64,5 +70,6 @@
 		<module>springboot-quartz-email</module>
 		<module>springboot-mongo</module>
 		<module>springboot-webmagic</module>
+		<module>springboot-maiosha</module>
 	</modules>
 </project>
