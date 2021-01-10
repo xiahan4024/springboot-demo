@@ -59,8 +59,12 @@ public class VelocityGBM {
 
         // 2.数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setDbType(DbType.MYSQL).setUrl(DBURL).setDriverName(DBDRIVER).setUsername(DBUSER)
-                .setPassword(DBPASSWORD);
+        dataSourceConfig.setDbType(DbType.MYSQL)
+                        .setUrl(DBURL)
+                        .setDriverName(DBDRIVER)
+                        .setUsername(DBUSER)
+                        .setPassword(DBPASSWORD)
+                        ;
 
         // 3.策略配置
         StrategyConfig strategyConfig = new StrategyConfig();
@@ -84,10 +88,14 @@ public class VelocityGBM {
         // 4.包配置
         PackageConfig packageConfig = new PackageConfig();
 //        pc.setModuleName(scanner("模块名"));
-        packageConfig.setParent(PACKAGEPARENT).setMapper("mapper").setService("service").setServiceImpl("serviceImpl")
-                .setController("controller").setEntity("beans")
-//				.setXml("mapper") //使用这个会将xml与java放在一起
-        ;
+        packageConfig.setParent(PACKAGEPARENT)
+                    .setMapper("mapper")
+                    .setService("service")
+                    .setServiceImpl("serviceImpl")
+                    .setController("controller")
+                    .setEntity("beans")
+                    .setXml("mapper") //使用这个会将xml与java放在一起
+                    ;
 
         // 5.自定义配置
         InjectionConfig injectionConfig = new InjectionConfig() {

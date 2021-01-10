@@ -59,20 +59,24 @@ public class FreemarkerMBG {
 
         // 2.数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setDbType(DbType.MYSQL).setUrl(DBURL).setDriverName(DBDRIVER).setUsername(DBUSER)
-                .setPassword(DBPASSWORD);
+        dataSourceConfig.setDbType(DbType.MYSQL)
+                        .setUrl(DBURL)
+                        .setDriverName(DBDRIVER)
+                        .setUsername(DBUSER)
+                        .setPassword(DBPASSWORD)
+                        ;
 
         // 3.策略配置
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig.setNaming(NamingStrategy.underline_to_camel) // 数据库表映射到实体的命名策略
-                .setColumnNaming(NamingStrategy.underline_to_camel) // 指定表名 字段名是否使用下划线
-                .setEntityLombokModel(true) // 是否使用 lombok
-                .setRestControllerStyle(true) // 是否使用rest
-                .setCapitalMode(true) // 全局大写命名
-                .setTablePrefix("tb_") // 设置表名前缀
-                .setInclude("tb_student") // 生成的表
-//		        .setExclude("") //不逆向生成的表
-        ;
+                    .setColumnNaming(NamingStrategy.underline_to_camel) // 指定表名 字段名是否使用下划线
+                    .setEntityLombokModel(true) // 是否使用 lombok
+                    .setRestControllerStyle(true) // 是否使用rest
+                    .setCapitalMode(true) // 全局大写命名
+                    .setTablePrefix("tb_") // 设置表名前缀
+                    .setInclude("tb_student") // 生成的表
+//                    .setExclude("") //不逆向生成的表
+                    ;
 
         // 写于父类中的公共字段
 //	        strategyConfig.setSuperEntityColumns("id")
