@@ -2,6 +2,8 @@ package ${package.Controller};
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import ${package.Service}.${table.serviceName};
+import org.springframework.beans.factory.annotation.Autowired;
 
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
@@ -35,5 +37,7 @@ public class ${table.controllerName} extends ${superControllerClass} {
 public class ${table.controllerName} {
 </#if>
 
+    @Autowired
+    ${table.serviceName} ${table.serviceName};
 }
 </#if>
