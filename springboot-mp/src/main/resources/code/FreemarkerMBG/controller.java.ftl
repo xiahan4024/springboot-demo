@@ -8,7 +8,8 @@ import ${package.Service}.${table.serviceName};
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.*;
-
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
 <#else>
@@ -30,6 +31,7 @@ import java.util.Arrays;
  * @since ${date}
  */
 <#if restControllerStyle>
+@Api(tags = {"${table.comment!}"})
 @RestController
 <#else>
 @Controller
@@ -51,50 +53,38 @@ public class ${table.controllerName} {
     * 列表
     */
     @GetMapping("/list/{current}/{limit}")
+    @ApiOperation(value = "查询分页数据")
     public Result list(@PathVariable long current, @PathVariable long limit, @RequestParam Map<String, Object> params){
-    PageUtils page = ${cfg.servicename}.queryPage(current, limit, params);
-
-    return Result.ok().data("page", page);
+        PageUtils page = ${cfg.servicename}.queryPage(current, limit, params);
+        return Result.ok().data("page", page);
     }
 
-
-    /**
-    * 信息
-    */
     @RequestMapping("/info/{id}")
+    @ApiOperation(value = "根据id查询数据")
     public Result info(@PathVariable("id") Long id){
-    ${entity} wareInfo = ${cfg.servicename}.getById(id);
-
-    return Result.ok().data("wareInfo", wareInfo);
+        ${entity} wareInfo = ${cfg.servicename}.getById(id);
+        return Result.ok().data("wareInfo", wareInfo);
     }
 
-    /**
-    * 保存
-    */
     @RequestMapping("/save")
+    @ApiOperation(value = "新增数据")
     public Result save(@RequestBody ${entity} wareInfo){
-    ${cfg.servicename}.save(wareInfo);
-    return Result.ok();
+        ${cfg.servicename}.save(wareInfo);
+        return Result.ok();
     }
 
-    /**
-    * 修改
-    */
     @RequestMapping("/update")
+    @ApiOperation(value = "更新数据")
     public Result update(@RequestBody ${entity} wareInfo){
-    ${cfg.servicename}.updateById(wareInfo);
-
-    return Result.ok();
+        ${cfg.servicename}.updateById(wareInfo);
+        return Result.ok();
     }
 
-    /**
-    * 删除
-    */
     @RequestMapping("/delete")
+    @ApiOperation(value = "删除数据")
     public Result delete(@RequestBody Long[] ids){
-    ${cfg.servicename}.removeByIds(Arrays.asList(ids));
-
-    return Result.ok();
+        ${cfg.servicename}.removeByIds(Arrays.asList(ids));
+        return Result.ok();
     }
 
 }

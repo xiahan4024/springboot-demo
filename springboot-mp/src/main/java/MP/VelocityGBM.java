@@ -90,10 +90,7 @@ public class VelocityGBM {
 //                    .setExclude("") //不逆向生成的表
         ;
 
-        // 如果模板引擎是 freemarker
-        // String templatePath = "/templates/mapper.xml.ftl";
-        // 如果模板引擎是 velocity
-        String templatePath = "/templates/mapper.xml.vm";
+        String templatePath = "/code/VelocityGBM/mapper.xml.vm";
 
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<>();
@@ -116,6 +113,12 @@ public class VelocityGBM {
 
         // 6.配置模板
         TemplateConfig templateConfig = new TemplateConfig();
+        templateConfig.setController("/code/VelocityGBM/controller.java");
+        templateConfig.setEntity("/code/VelocityGBM/entity.java");
+        templateConfig.setEntityKt("/code/VelocityGBM/entity.kt");
+        templateConfig.setMapper("/code/VelocityGBM/mapper.java");
+        templateConfig.setService("/code/VelocityGBM/service.java");
+        templateConfig.setServiceImpl("/code/VelocityGBM/serviceImpl.java");
         templateConfig.setXml(null);
 
         // 代码生成器

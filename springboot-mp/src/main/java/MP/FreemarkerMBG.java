@@ -28,7 +28,7 @@ public class FreemarkerMBG {
     /**   */
     public static final String OUTPUTDIR = "/src/main/java";
     /**  父包名 */
-    public static final String PACKAGEPARENT = "com.xiahan.mp";
+    public static final String PACKAGEPARENT = "com.xiahan.security";
     /**  作者 */
     public static final String AUTHOR = "xiahan";
     /** jdbc 连接信息  */
@@ -96,7 +96,7 @@ public class FreemarkerMBG {
 
 
         // 如果模板引擎是 freemarker
-        String templatePath = "/templates/mapper.xml.ftl";
+        String templatePath = "/code/FreemarkerMBG/mapper.xml.ftl";
         // 如果模板引擎是 velocity
         // String templatePath = "/templates/mapper.xml.vm";
 
@@ -126,6 +126,12 @@ public class FreemarkerMBG {
 
         // 配置模板
         TemplateConfig templateConfig = new TemplateConfig();
+        templateConfig.setController("/code/FreemarkerMBG/controller.java");
+        templateConfig.setEntity("/code/FreemarkerMBG/entity.java");
+        templateConfig.setEntityKt("/code/FreemarkerMBG/entity.kt");
+        templateConfig.setMapper("/code/FreemarkerMBG/mapper.java");
+        templateConfig.setService("/code/FreemarkerMBG/service.java");
+        templateConfig.setServiceImpl("/code/FreemarkerMBG/serviceImpl.java");
         templateConfig.setXml(null);
 
         // 代码生成器
