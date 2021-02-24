@@ -59,11 +59,11 @@ public class VelocityGBM {
         // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDbType(DbType.MYSQL)
-                        .setUrl(DBURL)
-                        .setDriverName(DBDRIVER)
-                        .setUsername(DBUSER)
-                        .setPassword(DBPASSWORD)
-                        ;
+                .setUrl(DBURL)
+                .setDriverName(DBDRIVER)
+                .setUsername(DBUSER)
+                .setPassword(DBPASSWORD)
+        ;
 
         // 包配置
         PackageConfig packageConfig = new PackageConfig();
@@ -125,7 +125,7 @@ public class VelocityGBM {
                 .setStrategy(strategyConfig)
                 .setPackageInfo(packageConfig)
                 .setCfg(injectionConfig)
-        	    .setTemplate(templateConfig)
+                .setTemplate(templateConfig)
         ;
 
         generator.execute();

@@ -1,7 +1,9 @@
 package MP;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -12,6 +14,7 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 
@@ -29,7 +32,7 @@ public class FreemarkerMBG {
     /**  作者 */
     public static final String AUTHOR = "xiahan";
     /** jdbc 连接信息  */
-    public static final String DBURL = "jdbc:mysql://192.168.110.100:3306/mp_test?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Chongqing";
+    public static final String DBURL = "jdbc:mysql://192.168.110.100:3306/springboot_security?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Chongqing";
     /**  驱动 */
     public static final String DBDRIVER = "com.mysql.cj.jdbc.Driver";
     /** mysql 用户名  */
@@ -84,8 +87,8 @@ public class FreemarkerMBG {
                     .setEntityLombokModel(true) // 是否使用 lombok
                     .setRestControllerStyle(true) // 是否使用rest
                     .setCapitalMode(true) // 全局大写命名
-                    .setTablePrefix("tb_") // 设置表名前缀
-                    .setInclude("tb_student") // 生成的表
+                    .setTablePrefix("sys_") // 设置表名前缀
+//                    .setInclude("sys_acl_role") // 生成的表
                     .setControllerMappingHyphenStyle(true)
 //                    .setExclude("") //不逆向生成的表
                     ;
@@ -113,6 +116,10 @@ public class FreemarkerMBG {
         InjectionConfig injectionConfig = new InjectionConfig() {
             @Override
             public void initMap() {
+                Map<String, Object> map = new HashMap<>();
+                map.put("servicename", StringUtils.uncapitalize(this.getConfig().getTableInfoList().get(0).getServiceName()));
+
+                this.setMap(map);
             }
         };
         injectionConfig.setFileOutConfigList(focList);
