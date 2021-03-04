@@ -28,7 +28,7 @@ public class FreemarkerMBG {
     /**   */
     public static final String OUTPUTDIR = "/src/main/java";
     /**  父包名 */
-    public static final String PACKAGEPARENT = "com.xiahan.security";
+    public static final String PACKAGEPARENT = "com.xiahan.security.finish";
     /**  作者 */
     public static final String AUTHOR = "xiahan";
     /** jdbc 连接信息  */
@@ -118,6 +118,8 @@ public class FreemarkerMBG {
             public void initMap() {
                 Map<String, Object> map = new HashMap<>();
                 map.put("servicename", StringUtils.uncapitalize(this.getConfig().getTableInfoList().get(0).getServiceName()));
+
+                map.put("entityname", StringUtils.uncapitalize(this.getConfig().getTableInfoList().get(0).getEntityName()));
 
                 this.setMap(map);
             }

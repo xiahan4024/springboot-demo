@@ -47,43 +47,40 @@ public class ${table.controllerName} {
 </#if>
 
     @Autowired
-    ${table.serviceName} ${cfg.servicename};
+    ${table.serviceName} baseService;
 
-    /**
-    * 列表
-    */
     @GetMapping("/list/{current}/{limit}")
     @ApiOperation(value = "查询分页数据")
     public Result list(@PathVariable long current, @PathVariable long limit, @RequestParam Map<String, Object> params){
-        PageUtils page = ${cfg.servicename}.queryPage(current, limit, params);
+        PageUtils page = baseService.queryPage(current, limit, params);
         return Result.ok().data("page", page);
     }
 
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     @ApiOperation(value = "根据id查询数据")
-    public Result info(@PathVariable("id") Long id){
-        ${entity} wareInfo = ${cfg.servicename}.getById(id);
-        return Result.ok().data("wareInfo", wareInfo);
+    public Result info(@PathVariable("id") String id){
+        ${entity} baseEntity = baseService.getById(id);
+        return Result.ok().data("baseEntity", baseEntity);
     }
 
-    @RequestMapping("/save")
+    @PostMapping("/save")
     @ApiOperation(value = "新增数据")
-    public Result save(@RequestBody ${entity} wareInfo){
-        ${cfg.servicename}.save(wareInfo);
+    public Result save(@RequestBody ${entity} baseEntity){
+        baseService.save(baseEntity);
         return Result.ok();
     }
 
-    @RequestMapping("/update")
+    @PutMapping("/update")
     @ApiOperation(value = "更新数据")
-    public Result update(@RequestBody ${entity} wareInfo){
-        ${cfg.servicename}.updateById(wareInfo);
+    public Result update(@RequestBody ${entity} baseEntity){
+        baseService.updateById(baseEntity);
         return Result.ok();
     }
 
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     @ApiOperation(value = "删除数据")
-    public Result delete(@RequestBody Long[] ids){
-        ${cfg.servicename}.removeByIds(Arrays.asList(ids));
+    public Result delete(@RequestBody String[] ids){
+        baseService.removeByIds(Arrays.asList(ids));
         return Result.ok();
     }
 
