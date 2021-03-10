@@ -28,11 +28,11 @@ public class FreemarkerMBG {
     /**   */
     public static final String OUTPUTDIR = "/src/main/java";
     /**  父包名 */
-    public static final String PACKAGEPARENT = "com.xiahan.security.finish";
+    public static final String PACKAGEPARENT = "com.xiahan.shiro.demo";
     /**  作者 */
     public static final String AUTHOR = "xiahan";
     /** jdbc 连接信息  */
-    public static final String DBURL = "jdbc:mysql://192.168.110.100:3306/springboot_security?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Chongqing";
+    public static final String DBURL = "jdbc:mysql://192.168.110.100:3306/springboot-shiro?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Chongqing";
     /**  驱动 */
     public static final String DBDRIVER = "com.mysql.cj.jdbc.Driver";
     /** mysql 用户名  */

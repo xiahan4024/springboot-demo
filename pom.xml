@@ -7,12 +7,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.8.RELEASE</version>
-	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -30,10 +24,29 @@
 		<p6spy.version>3.9.1</p6spy.version>
 		<commons-io.version>2.6</commons-io.version>
 		<commons-lang.version>2.6</commons-lang.version>
+		<spring.shiro.version>1.6.0</spring.shiro.version>
+		<spring.boot.version>2.1.8.RELEASE</spring.boot.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session-data-redis</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${spring.shiro.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
@@ -117,5 +130,6 @@
 		<module>springboot-maiosha</module>
 		<module>springboot-security</module>
 		<module>springboot-util</module>
+		<module>springboot-shiro</module>
 	</modules>
 </project>

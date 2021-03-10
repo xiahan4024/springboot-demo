@@ -3,6 +3,7 @@ package com.xiahan.util.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -25,6 +26,7 @@ import java.time.Duration;
  * @Date: 2021/2/23 21:40
  * @Description:
  */
+@Slf4j
 @EnableCaching //开启缓存
 @Configuration  //配置类
 @ConditionalOnProperty(prefix = "xiahan.redis", name = "enable", havingValue = "true", matchIfMissing = false)
@@ -32,6 +34,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+        log.info("开启 xiahan 自定义 redis");
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
