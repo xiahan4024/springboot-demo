@@ -1,11 +1,59 @@
 server:
-  port: 8080
+  port: 8081
 
+
+xiahan:
+#  datasource:
+#    test:
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://192.168.110.100:3306/springboot_quartz?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
+#      username: root
+#      password: xiahan
+  task:
+    pool:
+      corePoolSize: 2
+      maxPoolSize: 8
+      keepAliveSeconds: 30
+      queueCapacity: 5000
+      threadName: Xiahan-Executor-
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-#    type: com.mchange.v2.c3p0.ComboPooledDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.110.100:3306/quartz?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
+    url: jdbc:mysql://192.168.110.100:3306/springboot_quartz?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
     username: root
     password: xiahan
+  quartz:
+    ## 采用jdbc 方式存储
+    job-store-type: JDBC
+    ## 每次启动 都会删除库 然后重建
+    jdbc:
+#      initialize-schema: ALWAYS
+      initialize-schema: NEVER
+    properties:
+      ## 原生的properties 这里都可以
+      org:
+        quartz:
+          scheduler:
+            ## 集群名称
+            instanceName: myQuartz
+            ## 该节点名称 这里自动。可以手动便于调试
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate #StdJDBCDelegate说明支持集群
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 1000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 20
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+
+
+## quartz 数据源注意事项
+## quartz 单数据源会直接使用项目的数据源。
+## 多数据源，只需自己手动创建数据源，且在创建数据源的时候添加注解：@QuartzDataSource 表明这是quartz 的数据源即可

@@ -1,3 +1,82 @@
+# 一：Spring自带定时任务
+> com.xiahan.quartz.spring;包即为spring自带的定时任务
+> 目前共有两种方式
+
+# 二：其他准备
+
+> 1. 导入依赖：
+>
+>    ```xml
+>    <dependency>
+>       <groupId>org.springframework</groupId>
+>       <artifactId>spring-context-support</artifactId>
+>    </dependency>
+>    ```
+>
+> 2. 添加注解：@EnableScheduling
+
+# 三：Scheduled 注解使用
+
+> Scheduled注解，简单，但是不能动态改变定时时间
+
+# 四：quartz 使用
+
+## 1.  导入依赖
+> ```shell
+> <dependency>
+>  <groupId>org.springframework.boot</groupId>
+>     <artifactId>spring-boot-starter-quartz</artifactId>
+>    </dependency>
+> ```
+>
+## 2. 配置 
+> springboot 与 quartz 集成十分简单。不需要花里胡哨的配置。只需在yml 里面配置即可
+>
+>    ```shell
+>    spring:
+>      datasource:
+>        type: com.alibaba.druid.pool.DruidDataSource
+>        driver-class-name: com.mysql.cj.jdbc.Driver
+>        url: jdbc:mysql://192.168.110.100:3306/springboot_quartz?characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Taipei
+>        username: root
+>        password: xiahan
+>      quartz:
+>        ## 采用jdbc 方式存储
+>        job-store-type: JDBC
+>        ## 每次启动 都会删除库 然后重建
+>        jdbc:
+>    #      initialize-schema: ALWAYS
+>          initialize-schema: NEVER
+>        properties:
+>          ## 原生的properties 这里都可以
+>          org:
+>            quartz:
+>              scheduler:
+>                ## 集群名称
+>                instanceName: muQuartz
+>                ## 该节点名称 这里自动。可以手动便于调试
+>                instanceId: AUTO
+>              jobStore:
+>                class: org.quartz.impl.jdbcjobstore.JobStoreTX
+>                driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate #StdJDBCDelegate说明支持集群
+>                tablePrefix: QRTZ_
+>                isClustered: true
+>                clusterCheckinInterval: 1000
+>                useProperties: false
+>              threadPool:
+>                class: org.quartz.simpl.SimpleThreadPool
+>                threadCount: 20
+>                threadPriority: 5
+>                threadsInheritContextClassLoaderOfInitializingThread: true
+>    ```
+>
+> 3. 数据源问题：单数据源，只需要使用项目中的数据源即可。多数据源，只需要在创建数据源的时候使用注解@QuartzDataSource告诉 quartz 即可。
+>
+> 4. 集群问题：集群必须在 jdbc 方式下才可以进行。且 isClustered: true需要设置对
+
+## 3. 操作工具类
+
+```java
 package com.xiahan.quartz.util;
 
 import lombok.extern.slf4j.Slf4j;
@@ -205,3 +284,26 @@ public class ScheduledManagerUtil {
         }
     }
 }
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
