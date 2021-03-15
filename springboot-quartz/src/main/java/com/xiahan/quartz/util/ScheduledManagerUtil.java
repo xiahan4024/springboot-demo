@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  *
  * @author xiahan
  * @dateTime 2019年11月1日 下午9:54:17
- *      TODO 添加分区 
+ *      TODO 添加分区 即为分布式，将org.quartz.scheduler.instanceName 更换即可实现
  */
 @Slf4j
 @Component
