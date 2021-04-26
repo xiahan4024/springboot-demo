@@ -22,7 +22,7 @@
 		<fastjson.version>1.2.62</fastjson.version>
 		<collections.version>3.2.2</collections.version>
 		<p6spy.version>3.9.1</p6spy.version>
-		<commons-io.version>2.6</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<spring.shiro.version>1.6.0</spring.shiro.version>
 		<spring.boot.version>2.1.8.RELEASE</spring.boot.version>
